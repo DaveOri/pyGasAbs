@@ -119,7 +119,9 @@ subroutine rosen98_gasabs &
 !   else
 !      err = success
 !   end if
-
+  print*,"checking input consistency"
+  print*,"freq     ","temp     ","abs_hum      ","press"
+  print*,freq, tempK, rhoWv,  pres
   ! convert pressure from Pa to Mb
   pmb = pres / 100.0_dbl
 
@@ -141,6 +143,7 @@ subroutine rosen98_gasabs &
   rhoair = pres / (Tv * 287.06_dbl)
 
 !!  errorstatus = err
+errorstatus = 1
 
 !!  if (verbose >= 2) call report(info,'End of ', nameOfRoutine)
 
